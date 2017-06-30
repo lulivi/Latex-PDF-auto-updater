@@ -25,7 +25,7 @@ I got the idea of this script mainly from two blog entries made by [Elbaulp](htt
 
 ## Contact
 
-You can contact me in luislivilla`at`gmail.com or directly with [Telegram](t.me/lulivi).
+You can contact me in luislivilla`at`gmail.com or directly with [Telegram](http://t.me/lulivi).
 
 ## License
 

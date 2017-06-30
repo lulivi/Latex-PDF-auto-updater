@@ -10,7 +10,7 @@ or just click on the "Download as zip" button.
 
 ## Usage
 
-You have to execute this script from the directory in wich you have your Latex files. Simply run:
+You have to execute this script from the directory in which you have your Latex files. Simply run:
 ```bash
 ./updatePdfLatex.sh <output_directory_of_auxiliar_files> <target_file.pdf>
 ```

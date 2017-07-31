@@ -28,13 +28,20 @@
 #   along with this program. If not, see <http://www.gnu.org/licenses/>
 ###############################################################################
 
+# Help function
 function help {
-  echo "$0 <directory_to_watch> <file_to_watch>"
+  echo "$0 <metafiles_directory> <latex_file_to_watch>"
 }
 
+# Check correct execution of the script
 if [ "$#" -ne 2 ]; then
   help
   exit 1
+fi
+
+# Create directory if it doesn't exist
+if [ ! -d $1 ]; then
+	mkdir $1
 fi
 
 # Copy the pdf from the temporal directory to the parent directory

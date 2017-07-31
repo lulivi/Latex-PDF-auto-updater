@@ -30,40 +30,41 @@
 
 # Help function
 function help {
-  echo "$0 <metafiles_directory> <latex_file_to_watch>"
+  echo "$0 <metafiles_directory>"
 }
 
 # Check correct execution of the script
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 1 ]; then
   help
   exit 1
 fi
 
 # Create directory if it doesn't exist
 if [ ! -d $1 ]; then
-	mkdir $1
+  mkdir $1
 fi
 
 # Copy the pdf from the temporal directory to the parent directory
 function listen_pdf_update {
+  pdf_substring='(.*[.]pdf.*)'
   while true; do
     change=$(inotifywait -e close_write $1)
-    echo "=================================="
-    echo "$change"
-    change=${change##* }
-    if [ "$change" = "$2" ]; then
+
+    if [[ $change =~ $pdf_substring ]]; then
       cp $1/*.pdf ./
-      echo "===> Moved pdf to parent directory"
+      echo "============> iNotify <============"
+      echo "==>   Updated parent pdf file   <=="
+      echo "==================================="
     fi
-    echo "=================================="
+
   done
 }
 
 # Set up listener for the target PDF file
-listen_pdf_update $1 $2 &
+listen_pdf_update $1 &
 
 # Set up latex listener for changes in the directory
-latexmk -shell-escape -xelatex -pdf -pvc -output-directory=$1
+latexmk -shell-escape -silent -bibtex -view=pdf -xelatex -pdf -pvc -output-directory=$1
 
 # Kill all processes created in this script
 kill -9 -$$

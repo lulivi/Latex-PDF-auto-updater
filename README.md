@@ -1,5 +1,10 @@
 # Latex PDF auto updater
 
+## Requirements
+
+- latexmk
+- inotify-tools
+
 ## Installation
 
 You can clone this repository with the command below

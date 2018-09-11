@@ -1,14 +1,27 @@
-# Latex PDF auto updater
+# Latex project example
 
-## Requirements
+## Dependencies
 
-- latexmk
-- inotify-tools
+You will need `latexmk` and `inotify-tools` for this script:
+
+To install them in Debian based distributions:
+
+``` bash
+sudo apt install inotify-tools
+sudo apt install latexmk
+```
+
+To install it in ArchLinux:
+
+``` bash
+sudo pacman -S inotify-tools
+sudo pacman -S texlive-core
+```
 
 ## Installation
 
 You can clone this repository with the command below
-```
+```bash
 git clone git@github.com:lulivi/Latex-PDF-auto-updater.git
 ```
 or just click on the "Download as zip" button.
@@ -27,7 +40,7 @@ You have to execute this script from the directory in which you have your Latex 
 ```bash
 /PATH/TO/SCRIPT/updatePdfLatex.sh <metafiles_directory>
 ```
-After this, you can edit your tex files in the directory and let the script update the pdf for you.
+Where `<metafiles_directory>` is the directory where the build files like `aux`, `log`, `bbl`, `pdf`,... will be stored. After this, you can edit your tex files in the directory and let the script update the pdf for you.
 
 ## References
 
@@ -44,4 +57,4 @@ You can contact me in luislivilla at gmail.com or directly with [Telegram](http:
 
 ## License
 
-Checkout [LICENSE](https://github.com/lulivi/Latex-PDF-auto-updater/blob/master/LICENSE)
+Checkout [LICENSE](./LICENSE)

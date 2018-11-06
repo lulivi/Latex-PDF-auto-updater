@@ -2,45 +2,41 @@
 
 ## Dependencies
 
-You will need `latexmk` and `inotify-tools` for this script:
+You will need `latexmk` for this script:
 
-To install them in Debian based distributions:
-
-``` bash
-sudo apt install inotify-tools
+To install it in Debian based distributions:
+```shell
 sudo apt install latexmk
 ```
 
-To install it in ArchLinux:
-
-``` bash
-sudo pacman -S inotify-tools
+And in Archlinux:
+```shell
 sudo pacman -S texlive-core
 ```
 
 ## Installation
 
 You can clone this repository with the command below
-```bash
-git clone git@github.com:lulivi/Latex-PDF-auto-updater.git
+```shell
+git clone git@github.com:lulivi/latex-project-example.git
 ```
 or just click on the "Download as zip" button.
 
 ## Usage
 
-Firstly you have to add the following variable to your home directory to set up the latexmk previewer with your favourite pdf viewer (e.g. evince):
-```bash
-echo '$pdf_previewer = "start evince";' >> $HOME/.latexmkrc
-```
-Then, you can create an alias for the script, for example:
-```bash
-alias updatePdfLatex="/PATH/TO/SCRIPT/updatePdfLatex.sh"
-```
-You have to execute this script from the directory in which you have your Latex files. Simply run:
-```bash
-/PATH/TO/SCRIPT/updatePdfLatex.sh <metafiles_directory>
-```
-Where `<metafiles_directory>` is the directory where the build files like `aux`, `log`, `bbl`, `pdf`,... will be stored. After this, you can edit your tex files in the directory and let the script update the pdf for you.
+1. Firstly, select your favourite pdf viewer. To define it, you should go to the script `update_pdf_latex.sh` and modify the line containing the following text:
+  ```bash
+  PREVIEWER="evince"
+  ```
+  Change `evince` with whichever pdf viewer you want.
+
+2. Secondly, go to your desired directory where you will use the latex template and run this command:
+  ```shell
+  bash /path/to/repository/latex_project_copy.sh
+  ```
+  This will copy the required files to your current directory.
+
+3. Finally, run the updater script. Use `./update_pdf_latex.sh -h` to show you the help.
 
 ## References
 
